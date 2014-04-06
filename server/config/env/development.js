@@ -3,7 +3,7 @@
 module.exports = {
     db: 'mongodb://gamboDbUser:baxyr@ds041327.mongolab.com:41327/gambo',
     app: {
-        name: 'MEAN - A Modern Stack - Development'
+        name: 'GAMBO - filtered context data view'
     },
     facebook: {
         clientID: '166064093485404', //'APP_ID',

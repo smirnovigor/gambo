@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-test',
+    db: 'mongodb://gamboDbUser:baxyr@ds041327.mongolab.com:41327/gambo',
     port: 3001,
     app: {
-        name: 'MEAN - A Modern Stack - Test'
+        name: 'GAMBO - filtered context data view - Test'
     },
     facebook: {
         clientID: 'APP_ID',

@@ -5,8 +5,8 @@ angular.element(document).ready(function() {
     if (window.location.hash === '#_=_') window.location.hash = '#!';
 
     //Then init the app
-    angular.bootstrap(document, ['mean']);
+    angular.bootstrap(document, ['gambo']);
 
 });
 
-angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'mean.system', 'mean.articles','mean.auth']);
+angular.module('gambo', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'gambo.system', 'gambo.articles','gambo.auth']);

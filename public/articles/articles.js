@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('mean.articles', []);
+angular.module('gambo.articles', []);

@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean',
+    db: 'mongodb://gamboDbUser:baxyr@ds041327.mongolab.com:41327/gambo',
     app: {
-        name: 'MEAN - A Modern Stack - Production'
+        name: 'GAMBO - filtered context data view - Production'
     },
     facebook: {
         clientID: 'APP_ID',

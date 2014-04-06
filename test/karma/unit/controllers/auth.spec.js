@@ -2,7 +2,7 @@
 
 (function() {
     // Login Controller Spec
-    describe('MEAN controllers', function() {
+    describe('GAMBO controllers', function() {
         describe('LoginCtrl', function() {
             beforeEach(function() {
                 this.addMatchers({
@@ -12,7 +12,7 @@
                 });
             });
 
-            beforeEach(module('mean'));
+            beforeEach(module('gambo'));
 
             var LoginCtrl,
                 scope,
@@ -76,7 +76,7 @@
                 });
             });
 
-            beforeEach(module('mean'));
+            beforeEach(module('gambo'));
 
             var RegisterCtrl,
                 scope,

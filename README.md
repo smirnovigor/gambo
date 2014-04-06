@@ -1,6 +1,3 @@
 gambo
 =====
-Leonid add this
-@leonid Very good.
-
-Sam takoj
+Filtered context data view

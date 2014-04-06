@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean-factory-interceptor',[])
+angular.module('gambo-factory-interceptor',[])
     .factory('httpInterceptor', ['$q','$location',function ($q,$location) {
         return {
             'response': function(response) {

@@ -1,19 +1,16 @@
 {
-  "name": "mean",
-  "description": "MEAN.io: A fullstack javascript platformed powerd by MongoDB, ExpressJS, AngularJS, NodeJS.",
-  "version": "0.3.0",
+  "name": "gambo",
+  "description": "Gambo, filtered context data view",
+  "version": "0.1.0",
   "private": false,
-  "author": "Linnovate <mean@linnovate.net>",
+  "author": "Gambo Team",
   "contributors":[ 
-    {"name":"Lior Kesos", "mail": "lior@linnovate.net"},
-    {"name":"Yonatan Ellman", "mail": "yonatan@linnovate.net"},
-    {"name":"Ehud Shahak", "mail": "ehud@linnovate.net"},
-    {"name":"Amos Haviv", "mail": "mail@amoshaviv"},
-    {"name":"Drew Fyock", "mail": "drew@steelbisondev.com"}
+    {"name":"Leonid Raizman", "mail": "raizman_leonid@hotmail.com"},
+    {"name":"Igor Smirnov", "mail": "smirnov83@gmail.com"}
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/smirnovigor/gambo.git"
   },
   "engines": {
     "node": "0.10.x",
@@ -25,13 +22,13 @@
     "postinstall": "node node_modules/bower/bin/bower install"
   },
   "dependencies": {
-    "meanio":"latest",
+      "meanio":"latest",
     "assetmanager": "^0.1.1",
     "express": "~3.4.7",
     "consolidate": "~0.10.0",
     "dependable": "0.2.5",
     "mongoose": "~3.8.3",
-    "bower": "~1.2.8",
+    "bower": "~1.3.1",
     "grunt-cli": "~0.1.11",
     "connect-mongo": "~0.4.0",
     "connect-flash": "~0.1.1",
