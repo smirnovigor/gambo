@@ -23,7 +23,11 @@
 
 .content {
     margin-top:70px;
-    width:100%
+    width:100%;
+}
+
+.container {
+    width: 1280px;
 }
 
 footer {
@@ -40,4 +44,8 @@ footer {
 
 footer p {
     padding:5px 0 12px 10px
+}
+
+body {
+    background-color: buttonface;
 }

@@ -2,7 +2,7 @@
 
 (function() {
     // Login Controller Spec
-    describe('GAMBO controllers', function() {
+    xdescribe('GAMBO controllers', function() {
         describe('LoginCtrl', function() {
             beforeEach(function() {
                 this.addMatchers({

@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-    describe('GAMBO controllers', function() {
+    xdescribe('GAMBO controllers', function() {
         describe('IndexController', function() {
             // Load the controllers module
             beforeEach(module('gambo'));

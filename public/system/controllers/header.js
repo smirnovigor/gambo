@@ -14,6 +14,10 @@ angular.module('gambo.system').controller('HeaderController', ['$scope', '$rootS
             'roles': ['authenticated'],
             'title': 'Create New Article',
             'link': 'create article'
+        }, {
+            'roles': ['authenticated'],
+            'title': 'Posts',
+            'link': 'posts'
         }];
 
         // Query menus added by modules. Only returns menus that user is allowed to see.

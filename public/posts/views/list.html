@@ -1,0 +1,36 @@
+<section data-ng-init="morePosts()">
+
+    <div class="postsContainer">
+
+        <div class="gridItems">
+            <div class="item" data-ng-repeat="post in myPosts.data">
+                <a href="{{post.permalink}}">
+                    <img ng-src="{{getPhotoSrc(post)}}"/>
+                </a>
+
+                <div class="itemMessage">
+                    <span>{{post.message | truncate:100}}</span>
+                </div>
+
+                <div class="creditsMessage">
+                    <div>{{post.like_info.like_count}} <i class="glyphicon glyphicon-thumbs-up"></i></div>
+                    <div>{{post.comment_info.comment_count}} <i class="glyphicon glyphicon-comment"></i></div>
+                    <div>{{post.share_count}} <i class="glyphicon glyphicon-share-alt"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!--</div>-->
+        <!--<h1>My Posts:</h1>-->
+        <!--<pre>{{myPosts | json}}</pre>-->
+        <!--<hr/>-->
+
+
+        <!--<h1>My Friends Posts:</h1>-->
+        <!--<pre>{{friendPosts | json}}</pre>-->
+        <!--<hr/>-->
+
+        <!--<h1>Recommended Posts:</h1>-->
+        <!--<pre>{{popularPosts | json}}</pre>-->
+        <!--<hr/>-->
+</section>

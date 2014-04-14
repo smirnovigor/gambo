@@ -1,0 +1,39 @@
+.gridItems{
+}
+.item {
+    float: left;
+    position: relative;
+    background: #fff;
+    width: 236px;
+    font-family: 'Helvetica Neue','Helvetica',arial,sans-serif;
+    margin: 13px 13px 15px 0;
+    border-radius: 3px;
+}
+.item IMG{
+    border-radius: 3px 3px 0 0;
+    width: 236px;
+    height: 240px;
+}
+.itemMessage{
+    padding: 6px 14px 7px;
+    word-wrap: break-word;
+}
+.creditsMessage{
+    border-top: 1px solid #cccccc;
+    margin: 5px 2px 5px 10px;
+    padding-top: 10px;
+}
+
+.creditsMessage DIV{
+    color: #a6a6a6;
+    float: left;
+    width: 74px;
+}
+
+.creditsMessage DIV:HOVER{
+    color: #6984d1;
+}
+
+.creditsMessage:after {
+    clear: left;
+}

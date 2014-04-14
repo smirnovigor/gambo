@@ -3,5 +3,6 @@
 node_modules/
 public/system/lib
 gambo.iml
+fql
 test/coverage/
 /public/build/

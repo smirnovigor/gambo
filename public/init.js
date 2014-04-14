@@ -9,4 +9,4 @@ angular.element(document).ready(function() {
 
 });
 
-angular.module('gambo', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'gambo.system', 'gambo.articles','gambo.auth']);
+angular.module('gambo', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'gambo.system', 'gambo.posts', 'gambo.articles', 'gambo.auth']);
