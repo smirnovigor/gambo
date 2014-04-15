@@ -1,36 +1,64 @@
-<section data-ng-init="morePosts()">
+<section data-ng-init="init()">
+    <div class="container">
+        <div class="row" ng-show="selectedPost != null">
+            <div class="col-lg-4 col-md-4 col-sm-4 post-box">
 
-    <div class="postsContainer">
+                <img ng-click="selectPost(null)" class="img-responsive img-thumbnail"
+                     ng-src="{{getPhotoSrc(selectedPost)}}">
 
-        <div class="gridItems">
-            <div class="item" data-ng-repeat="post in myPosts.data">
-                <a href="{{post.permalink}}">
-                    <img ng-src="{{getPhotoSrc(post)}}"/>
-                </a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="media-body">
+                    <h4 class="media-heading">Comments</h4>
 
-                <div class="itemMessage">
-                    <span>{{post.message | truncate:100}}</span>
-                </div>
-
-                <div class="creditsMessage">
-                    <div>{{post.like_info.like_count}} <i class="glyphicon glyphicon-thumbs-up"></i></div>
-                    <div>{{post.comment_info.comment_count}} <i class="glyphicon glyphicon-comment"></i></div>
-                    <div>{{post.share_count}} <i class="glyphicon glyphicon-share-alt"></i></div>
+                    <div ng-class-even="'even_comment'" ng-repeat="comment in selectedPost.comments.data">
+                        {{comment.text}}
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!--</div>-->
-        <!--<h1>My Posts:</h1>-->
-        <!--<pre>{{myPosts | json}}</pre>-->
-        <!--<hr/>-->
+        <div class="row">
 
 
-        <!--<h1>My Friends Posts:</h1>-->
-        <!--<pre>{{friendPosts | json}}</pre>-->
-        <!--<hr/>-->
+            <div class="col-lg-2 col-md-2 col-sm-2" data-ng-repeat="post in myPosts.data">
 
-        <!--<h1>Recommended Posts:</h1>-->
-        <!--<pre>{{popularPosts | json}}</pre>-->
-        <!--<hr/>-->
+
+                <div class="post-box " >
+
+                    <a ng-click="selectPost(post)">
+                        <img class="img-responsive" ng-src="{{getPhotoSrc(post)}}"/>
+                    </a>
+
+                    <div class="itemMessage" ng-click="selectPost(post)">
+                        <span>{{post.message | truncate:100}}</span>
+                    </div>
+
+                    <div>
+                        <div style="display: inline">{{post.like_info.like_count}} <i
+                                class="glyphicon glyphicon-thumbs-up"></i></div>
+                        <div style="display: inline">{{post.comment_info.comment_count}} <i
+                                class="glyphicon glyphicon-comment"></i></div>
+                        <div style="display: inline">{{post.share_count}} <i class="glyphicon glyphicon-share-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!--</div>-->
+            <!--<h1>My Posts:</h1>-->
+            <!--<pre>{{myPosts | json}}</pre>-->
+            <!--<hr/>-->
+
+
+            <!--<h1>My Friends Posts:</h1>-->
+            <!--<pre>{{friendPosts | json}}</pre>-->
+            <!--<hr/>-->
+
+            <!--<h1>Recommended Posts:</h1>-->
+            <!--<pre>{{popularPosts | json}}</pre>-->
+            <!--<hr/>-->
+        </div>
+    </div>
 </section>
