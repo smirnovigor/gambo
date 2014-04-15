@@ -8,18 +8,19 @@ angular.module('gambo.system').controller('HeaderController', ['$scope', '$rootS
         // Default hard coded menu items for main menu
         var defaultMainMenu = [{
             'roles': ['authenticated'],
-            'title': 'Articles',
-            'link': 'all articles'
-        }, {
-            'roles': ['authenticated'],
-            'title': 'Create New Article',
-            'link': 'create article'
-        }, {
-            'roles': ['authenticated'],
             'title': 'Posts',
             'link': 'posts'
+        }, {
+            'roles': ['authenticated'],
+            'title': 'Pages',
+            'link': 'pages'
+        }, {
+            'roles': ['authenticated'],
+            'title': 'Sites',
+            'link': 'sites'
         }];
 
+        //$scope.menus['main'] = defaultMenu;
         // Query menus added by modules. Only returns menus that user is allowed to see.
         function queryMenu(name, defaultMenu) {
 
@@ -29,6 +30,12 @@ angular.module('gambo.system').controller('HeaderController', ['$scope', '$rootS
             }, function(menu) {
                 console.log(menu)
                 $scope.menus[name] = menu;
+
+                if (Global.authenticated) {
+                    $scope.menus['main'] = defaultMenu;
+                } else {
+                    $scope.menus['main'] = [];
+                }
             });
         };
 
@@ -38,9 +45,9 @@ angular.module('gambo.system').controller('HeaderController', ['$scope', '$rootS
         $scope.isCollapsed = false;
 
         $rootScope.$on('loggedin', function() {
-
-            queryMenu('main', defaultMainMenu);
-
+            console.log('loggedin');
+            //queryMenu('main', defaultMainMenu);
+            $scope.menus['main'] = defaultMenu;
             $scope.global = {
                 authenticated: !! $rootScope.user,
                 user: $rootScope.user

@@ -26,6 +26,7 @@
         "exports",
         "module",
         "describe",
+        "xdescribe",
         "before",
         "beforeEach",
         "after",

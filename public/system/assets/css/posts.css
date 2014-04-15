@@ -1,3 +1,16 @@
+.img-thumbnail {
+    padding: 0;
+}
+.post-box {
+
+    padding: 10px;
+    background-color: white;
+}
+
+.even_comment {
+    background-color: white;
+}
+
 .gridItems{
 }
 .item {

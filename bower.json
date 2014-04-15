@@ -8,6 +8,7 @@
         "angular-mocks": "latest",
         "angular-route": "latest",
         "bootstrap": "3.0.3",
-        "angular-bootstrap": "0.10.0"
+        "angular-bootstrap": "0.10.0",
+        "angular-facebook" : "0.2.2"
     }
 }

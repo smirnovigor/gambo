@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', function ($scope, Posts) {
+angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 'PostsQueries', 'Facebook', function ($scope, Posts, PostsQueries, Facebook) {
 
     $scope.postsPerPage = 30;
 
@@ -8,11 +8,54 @@ angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 
     $scope.friendPosts = [];
     $scope.popularPosts = [];
 
-    var MyPosts = Posts.getPostsResource(Posts.MY, $scope.postsPerPage);
-    var FriendPosts = Posts.getPostsResource(Posts.FRIENDS, $scope.postsPerPage);
-    var PopularPosts = Posts.getPostsResource(Posts.POPULAR, $scope.postsPerPage);
+    var MyPosts = null;
+    var FriendPosts = null;
+    var PopularPosts = null;
+    var CommentsForPost = null;
 
+    var token = null;
+
+    $scope.init = function () {
+        Facebook.getLoginStatus(function(response) {
+            console.log('response:', response);
+
+            if(response.status == 'connected')
+                $scope.$apply(function() {
+                    token = response.authResponse.accessToken;
+                    console.log(token);
+
+                    MyPosts = Posts.getPostsResource(Posts.MY, $scope.postsPerPage, 0, token);
+                    FriendPosts = Posts.getPostsResource(Posts.FRIENDS, $scope.postsPerPage, 0, token);
+                    PopularPosts = Posts.getPostsResource(Posts.POPULAR, $scope.postsPerPage, 0, token);
+
+                    $scope.morePosts();
+                });
+            else
+                $scope.$apply(function() {
+                    console.log('not connected');
+                });
+        });
+
+    };
+
+    $scope.selectPost = function(somePost) {
+          $scope.selectedPost = somePost;
+        console.log(somePost);
+          CommentsForPost  = Posts.getPostCommentsResource(somePost.post_id, 10, 0, token);
+          var promise = CommentsForPost.getPortion(10, 0).$promise;
+          promise
+            .then(function (result) {
+
+                  $scope.selectedPost.comments = result;
+                  console.log($scope.selectedPost.comments);
+                  //$scope.$apply();
+            })
+            .catch(function (error) {
+                console.error('ERROR',error);
+            });
+    };
     $scope.morePosts = function () {
+
         $scope.incrementMyPosts();
         $scope.incrementFriendPosts();
      //   $scope.incrementPopularPosts();
@@ -21,6 +64,8 @@ angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 
     $scope.incrementMyPosts = function(limit){
         //populate(MyPosts.getPortion(limit, $scope.myPosts.length).$promise, $scope.myPosts);
         $scope.myPosts = MyPosts.getPortion(limit, $scope.myPosts.length);
+
+
     };
 
     $scope.incrementFriendPosts = function(limit){
