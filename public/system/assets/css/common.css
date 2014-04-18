@@ -21,6 +21,7 @@
     margin-left:0
 }
 
+
 .content {
     margin-top:70px;
     width:100%;
@@ -28,6 +29,30 @@
 
 .container {
     width: 1280px;
+    margin: 0 auto;
+}
+
+/*Media Queries*/
+@media only screen and (max-width : 1279px),
+only screen and (max-device-width : 1279px){
+    .container {
+        width: 980px;
+    }
+}
+
+
+@media only screen and (max-width : 979px),
+only screen and (max-device-width : 979px){
+    .container {
+        width: 680px;
+    }
+}
+
+@media only screen and (max-width : 679px),
+only screen and (max-device-width : 679px){
+    .container {
+        width: 380px;
+    }
 }
 
 footer {

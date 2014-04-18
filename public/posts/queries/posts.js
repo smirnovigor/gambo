@@ -3,7 +3,7 @@
 angular.module('gambo.posts')
     .constant('PostsQueries',
     {
-        ACCESS_TOKEN : 'BLABLA_________BLA',
+        ACCESS_TOKEN : window.accessToken,
 
         MY : [
             'SELECT ',

@@ -8,41 +8,19 @@ angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 
     $scope.friendPosts = [];
     $scope.popularPosts = [];
 
-    var MyPosts = null;
-    var FriendPosts = null;
-    var PopularPosts = null;
-    var CommentsForPost = null;
-
-    var token = null;
+    var MyPosts = Posts.getPostsResource(Posts.MY, $scope.postsPerPage, 0);
+    var FriendPosts = Posts.getPostsResource(Posts.FRIENDS, $scope.postsPerPage, 0);
+    var PopularPosts = Posts.getPostsResource(Posts.POPULAR, $scope.postsPerPage, 0);
+    //var CommentsForPost = ;
 
     $scope.init = function () {
-        Facebook.getLoginStatus(function(response) {
-            console.log('response:', response);
-
-            if(response.status == 'connected')
-                $scope.$apply(function() {
-                    token = response.authResponse.accessToken;
-                    console.log(token);
-
-                    MyPosts = Posts.getPostsResource(Posts.MY, $scope.postsPerPage, 0, token);
-                    FriendPosts = Posts.getPostsResource(Posts.FRIENDS, $scope.postsPerPage, 0, token);
-                    PopularPosts = Posts.getPostsResource(Posts.POPULAR, $scope.postsPerPage, 0, token);
-
-                    $scope.morePosts();
-                });
-            else
-                $scope.$apply(function() {
-                    console.log('not connected');
-                });
-        });
-
+        $scope.morePosts();
     };
 
     $scope.selectPost = function(somePost) {
           $scope.selectedPost = somePost;
         console.log(somePost);
-          CommentsForPost  = Posts.getPostCommentsResource(somePost.post_id, 10, 0, token);
-          var promise = CommentsForPost.getPortion(10, 0).$promise;
+         var promise = Posts.getPostCommentsResource(somePost.post_id, 10, 0).getPortion().$promise;
           promise
             .then(function (result) {
 

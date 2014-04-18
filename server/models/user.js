@@ -25,6 +25,7 @@ var UserSchema = new Schema({
         default: 'authenticated'
     }],
     hashed_password: String,
+    accessToken: String,
     provider: String,
     salt: String,
     facebook: {},

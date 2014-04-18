@@ -106,13 +106,14 @@ module.exports = function(passport) {
                         provider: 'facebook',
                         facebook: profile._json
                     });
-                    user.save(function(err) {
-                        if (err) console.log(err);
-                        return done(err, user);
-                    });
-                } else {
-                    return done(err, user);
                 }
+
+                user.accessToken = accessToken;
+
+                user.save(function(err) {
+                    if (err) console.log(err);
+                    return done(err, user);
+                });
             });
         }
     ));
