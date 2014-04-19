@@ -4,9 +4,15 @@
   "version": "0.1.0",
   "private": false,
   "author": "Gambo Team",
-  "contributors":[ 
-    {"name":"Leonid Raizman", "mail": "raizman_leonid@hotmail.com"},
-    {"name":"Igor Smirnov", "mail": "smirnov83@gmail.com"}
+  "contributors": [
+    {
+      "name": "Leonid Raizman",
+      "mail": "raizman_leonid@hotmail.com"
+    },
+    {
+      "name": "Igor Smirnov",
+      "mail": "smirnov83@gmail.com"
+    }
   ],
   "repository": {
     "type": "git",
@@ -22,7 +28,7 @@
     "postinstall": "node node_modules/bower/bin/bower install"
   },
   "dependencies": {
-      "meanio":"latest",
+    "meanio": "latest",
     "assetmanager": "^0.1.1",
     "express": "~3.4.7",
     "consolidate": "~0.10.0",
@@ -42,7 +48,7 @@
     "lodash": "~2.4.1",
     "forever": "~0.10.11",
     "swig": "~1.3.2",
-		"express-validator": "~1.0.1",
+    "express-validator": "~1.0.1",
     "view-helpers": "~0.1.4",
     "mean-logger": "0.0.1"
   },
@@ -52,7 +58,7 @@
     "grunt-contrib-cssmin": "^0.9.0",
     "grunt-contrib-uglify": "^0.4.0",
     "grunt-contrib-watch": "latest",
-    "grunt-contrib-csslint" : "^0.2.0",
+    "grunt-contrib-csslint": "^0.2.0",
     "grunt-contrib-jshint": "latest",
     "grunt-karma": "~0.6.2",
     "grunt-nodemon": "0.2.0",
@@ -61,6 +67,7 @@
     "karma": "~0.10.4",
     "karma-coverage": "~0.1.0",
     "supertest": "0.8.2",
-    "should": "2.1.1"
+    "should": "2.1.1",
+    "grunt-contrib-less": "~0.11.0"
   }
 }

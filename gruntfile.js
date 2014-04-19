@@ -5,6 +5,27 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         assets: grunt.file.readJSON('server/config/assets.json'),
+
+        less: {
+            development: {
+                options: {
+                    paths: ["public/articles/assets/css"]
+                },
+                files: {
+                    "public/articles/assets/css/test.css": "public/articles/assets/css/test.less"
+                }
+            },
+            production: {
+                options: {
+                    paths: ["public/articles/assets/css"],
+                    cleancss: true
+                },
+                files: {
+                    "public/articles/assets/css/test.css": "public/articles/assets/css/test.css"
+                }
+            }
+        },
+
         watch: {
             js: {
                 files: ['gruntfile.js', 'server.js', 'server/**/*.js', 'public/js/**', 'test/**/*.js'],
@@ -109,14 +130,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-env');
 
+    grunt.loadNpmTasks('grunt-contrib-less');
+
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
 
     //Default task(s).
     if (process.env.NODE_ENV === 'production') {
-        grunt.registerTask('default', ['jshint', 'csslint', 'cssmin', 'uglify', 'concurrent']);
+        grunt.registerTask('default', ['jshint', 'less:production', 'csslint', 'cssmin', 'uglify', 'concurrent']);
     } else {
-        grunt.registerTask('default', ['jshint', 'csslint', 'concurrent']);
+        grunt.registerTask('default', ['jshint', 'less:development','csslint', 'concurrent']);
     }
 
     //Test task.
