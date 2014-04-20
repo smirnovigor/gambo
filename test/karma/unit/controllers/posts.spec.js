@@ -18,7 +18,7 @@
             });
 
             //load module
-            beforeEach(module('gambo'))
+            beforeEach(module('gambo'));
 
             // Initialize the controller and a mock scope
             var PostsController,
@@ -95,6 +95,6 @@
 
                 expect(scope.popularPosts).toEqualData(respondObject);
             });
-        })
-    })
+        });
+    });
 }());

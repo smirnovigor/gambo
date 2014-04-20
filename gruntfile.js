@@ -9,19 +9,19 @@ module.exports = function(grunt) {
         less: {
             development: {
                 options: {
-                    paths: ["public/articles/assets/css"]
+                    paths: ['public/articles/assets/css']
                 },
                 files: {
-                    "public/articles/assets/css/test.css": "public/articles/assets/css/test.less"
+                    'public/articles/assets/css/test.css': 'public/articles/assets/css/test.less'
                 }
             },
             production: {
                 options: {
-                    paths: ["public/articles/assets/css"],
+                    paths: ['public/articles/assets/css'],
                     cleancss: true
                 },
                 files: {
-                    "public/articles/assets/css/test.css": "public/articles/assets/css/test.css"
+                    'public/articles/assets/css/test.css': 'public/articles/assets/css/test.css'
                 }
             }
         },

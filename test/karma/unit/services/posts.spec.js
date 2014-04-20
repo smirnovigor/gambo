@@ -6,7 +6,7 @@
         describe('Posts', function(){
 
             //load module
-            beforeEach(module('gambo'))
+            beforeEach(module('gambo'));
 
             // Initialize the service and a mock scope
             var Posts,
@@ -17,7 +17,7 @@
                 inject(function($injector){
                     $httpBackend = $injector.get('$httpBackend');
                     Posts = $injector.get('Posts');
-                })
+                });
             });
 
             afterEach(function() {
@@ -72,6 +72,6 @@
                     ]
                 });
             });
-        })
-    })
+        });
+    });
 }());
