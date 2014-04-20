@@ -9,11 +9,4 @@ angular.element(document).ready(function() {
 
 });
 
-var app = angular.module('gambo', ['ngCookies', 'facebook', 'ngResource', 'ui.bootstrap', 'ui.router', 'gambo.system', 'gambo.posts', 'gambo.articles', 'gambo.auth']);
-
-
-app.config(['FacebookProvider', function(FacebookProvider) {
-    // Here you could set your appId through the setAppId method and then initialize
-    // or use the shortcut in the initialize method directly.
-    FacebookProvider.init('641796912562834');
-}])
+var app = angular.module('gambo', ['ngCookies', 'wu.masonry', 'ngResource', 'ui.bootstrap', 'ui.router', 'gambo.system', 'gambo.posts', 'gambo.articles', 'gambo.auth']);

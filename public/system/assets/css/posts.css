@@ -12,49 +12,7 @@
 }
 
 .gridItems{
-    -moz-column-count: 5;
-    -moz-column-gap: 0px;
-    -webkit-column-count: 5;
-    -webkit-column-gap: 0px;
-    column-count: 5;
-    column-gap: 0px;
-}
-/*Media Queries*/
-@media only screen and (max-width : 1279px),
-only screen and (max-device-width : 1279px){
-    .gridItems {
-        -moz-column-count: 4;
-        -moz-column-gap: 0px;
-        -webkit-column-count: 4;
-        -webkit-column-gap: 0px;
-        column-count: 4;
-        column-gap: 0px;
-    }
-}
 
-
-@media only screen and (max-width : 979px),
-only screen and (max-device-width : 979px){
-    .gridItems {
-        -moz-column-count: 3;
-        -moz-column-gap: 0px;
-        -webkit-column-count: 3;
-        -webkit-column-gap: 0px;
-        column-count: 3;
-        column-gap: 0px;
-    }
-}
-
-@media only screen and (max-width : 679px),
-only screen and (max-device-width : 679px){
-    .gridItems {
-        -moz-column-count: 2;
-        -moz-column-gap: 0px;
-        -webkit-column-count: 2;
-        -webkit-column-gap: 0px;
-        column-count: 2;
-        column-gap: 0px;
-    }
 }
 
 .list-item{
@@ -64,7 +22,7 @@ only screen and (max-device-width : 679px){
     background: #fff;
     width: 236px;
     font-family: 'Helvetica Neue','Helvetica',arial,sans-serif;
-    margin: 23px 23px 15px 0;
+    margin: 13px 14px 0px 0;
     border-radius: 3px;
 }
 .item IMG{
@@ -73,7 +31,7 @@ only screen and (max-device-width : 679px){
     height: 240px;
 }
 .itemMessage{
-    padding: 6px 14px 7px;
+    /*padding: 6px 14px 7px;*/
     word-wrap: break-word;
 }
 .creditsMessage{

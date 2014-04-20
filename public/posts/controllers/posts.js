@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 'PostsQueries', 'Facebook', function ($scope, Posts, PostsQueries, Facebook) {
+angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', function ($scope, Posts) {
 
     $scope.postsPerPage = 30;
 

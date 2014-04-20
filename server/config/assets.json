@@ -7,13 +7,16 @@
 	},
 	"js": {
 		"public/build/js/dist.min.js": [
+            "public/system/lib/jquery/jquery.js",
 			"public/system/lib/angular/angular.js",
 			"public/system/lib/angular-cookies/angular-cookies.js",
 			"public/system/lib/angular-resource/angular-resource.js",
 			"public/system/lib/angular-ui-router/release/angular-ui-router.js",
 			"public/system/lib/angular-bootstrap/ui-bootstrap.js",
 			"public/system/lib/angular-bootstrap/ui-bootstrap-tpls.js",
-            "public/system/lib/angular-facebook/lib/angular-facebook.js",
+            "public/system/lib/masonry/dist/masonry.pkgd.js",
+            "public/system/lib/angular-masonry/angular-masonry.js",
+            "public/system/lib/imagesloaded/imagesloaded.js",
             "public/init.js",
 			"public/*/*.js",			
 			"public/*/*/*.js"			

@@ -1,6 +1,6 @@
 <section data-ng-init="init()">
-    <ul class="gridItems">
-        <li class="list-item"  data-ng-repeat="post in myPosts.data">
+    <div masonry class="gridItems">
+        <div class="masonry-brick list-item"  data-ng-repeat="post in myPosts.data">
             <div class="item">
                 <a ng-click="selectPost(post)">
                     <img ng-src="{{getPhotoSrc(post)}}"/>
@@ -16,9 +16,10 @@
                     <div>{{post.share_count}} <i class="glyphicon glyphicon-share-alt"></i></div>
                 </div>
             </div>
-        </li>
-    </ul>
+        </div>
+    </div>
 </section>
+
 <!--<div class="row" ng-show="selectedPost != null">-->
     <!--<div class="col-lg-4 col-md-4 col-sm-4 post-box">-->
 
