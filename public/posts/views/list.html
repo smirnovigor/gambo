@@ -1,9 +1,9 @@
-<section data-ng-init="init()">
+<section data-ng-init="init()" xmlns="http://www.w3.org/1999/html">
     <div masonry preserve-order class="gridItems">
         <div class="masonry-brick list-item"  data-ng-repeat="post in myPosts.data">
             <div class="item">
                 <a ng-click="selectPost(post)">
-                    <img ng-src="{{getPhotoSrc(post)}}"/>
+                    <img ng-src="{{getPhotoSrc(post)}}">
                 </a>
 
                 <div class="itemMessage">
