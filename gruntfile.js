@@ -9,10 +9,11 @@ module.exports = function(grunt) {
         less: {
             development: {
                 options: {
-                    paths: ['public/articles/assets/css']
+                    paths: ['public/articles/assets/css', 'public/system/assets/less', 'public/system/lib/bootstrap/less']
                 },
                 files: {
-                    'public/articles/assets/css/test.css': 'public/articles/assets/css/test.less'
+                    'public/articles/assets/css/test.css': 'public/articles/assets/css/test.less',
+                    'public/system/assets/css/bootstrap.css': 'public/system/assets/less/bootstrap.less'
                 }
             },
             production: {
@@ -46,6 +47,10 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
+            },
+            less: {
+                files: ['public/**/assets/less/**'],
+                tasks: ['less']
             }
         },
         jshint: {
