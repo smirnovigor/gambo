@@ -1,9 +1,9 @@
-<section data-ng-init="init()">
+<section data-ng-init="init()" xmlns="http://www.w3.org/1999/html">
     <div masonry preserve-order class="gridItems">
         <div class="masonry-brick list-item"  data-ng-repeat="post in myPosts.data">
             <div class="item">
                 <a ng-click="selectPost(post)">
-                    <img ng-src="{{getPhotoSrc(post)}}"/>
+                    <img ng-src="{{getPhotoSrc(post)}}">
                 </a>
 
                 <div class="itemMessage">
@@ -20,20 +20,20 @@
     </div>
 </section>
 
-<!--<div class="row" ng-show="selectedPost != null">-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-4 post-box">-->
+<div class="row" ng-show="selectedPost != null">
+    <div class="col-lg-4 col-md-4 col-sm-4 post-box">
 
-        <!--<img ng-click="selectPost(null)" class="img-responsive img-thumbnail"-->
-             <!--ng-src="{{getPhotoSrc(selectedPost)}}">-->
+        <img ng-click="selectPost(null)" class="img-responsive img-thumbnail"
+             ng-src="{{getPhotoSrc(selectedPost)}}">
 
-    <!--</div>-->
-    <!--<div class="col-lg-8 col-md-8 col-sm-8">-->
-        <!--<div class="media-body">-->
-            <!--<h4 class="media-heading">Comments</h4>-->
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="media-body">
+            <h4 class="media-heading">Comments</h4>
 
-            <!--<div ng-class-even="'even_comment'" ng-repeat="comment in selectedPost.comments.data">-->
-                <!--{{comment.text}}-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+            <div ng-class-even="'even_comment'" ng-repeat="comment in selectedPost.comments.data">
+                {{comment.text}}
+            </div>
+        </div>
+    </div>
+</div>
