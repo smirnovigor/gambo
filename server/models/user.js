@@ -5,7 +5,7 @@
  */
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    crypto = require('crypto');
+    utils = require('../utils');
 
 /**
  * User Schema
@@ -25,9 +25,8 @@ var UserSchema = new Schema({
         default: 'authenticated'
     }],
     hashed_password: String,
-    accessToken: String,
+    hashed_access_token: String,
     provider: String,
-    salt: String,
     facebook: {},
     twitter: {},
     github: {},
@@ -39,11 +38,15 @@ var UserSchema = new Schema({
  * Virtuals
  */
 UserSchema.virtual('password').set(function(password) {
-    this._password = password;
-    this.salt = this.makeSalt();
-    this.hashed_password = this.encryptPassword(password);
+    this.hashed_password = this.encrypt(password);
 }).get(function() {
-    return this._password;
+    return this.decrypt(this.hashed_password);
+});
+
+UserSchema.virtual('accessToken').set(function(accessToken) {
+    this.hashed_access_token = this.encrypt(accessToken);
+}).get(function() {
+    return this.decrypt(this.hashed_access_token);
 });
 
 /**
@@ -119,26 +122,25 @@ UserSchema.methods = {
     },
 
     /**
-     * Make salt
+     * Encrypt secret
      *
+     * @param {String} secret
      * @return {String}
      * @api public
      */
-    makeSalt: function() {
-        return crypto.randomBytes(16).toString('base64');
+    encrypt: function(password) {
+        return utils.encrypt(password);
     },
 
     /**
-     * Encrypt password
+     * Decrypt encrypted
      *
      * @param {String} password
      * @return {String}
      * @api public
      */
-    encryptPassword: function(password) {
-        if (!password || !this.salt) return '';
-        var salt = new Buffer(this.salt, 'base64');
-        return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
+    decrypt: function(encrypted) {
+        return utils.decrypt(encrypted);
     }
 };
 

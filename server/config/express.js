@@ -80,7 +80,7 @@ module.exports = function(app, passport, db) {
 
         // Express/Mongo session storage
         app.use(express.session({
-            secret: config.sessionSecret,
+            secret: config.secret,
             store: new mongoStore({
                 db: db.connection.db,
                 collection: config.sessionCollection
