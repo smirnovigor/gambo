@@ -40,15 +40,15 @@ angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 
     };
 
     $scope.incrementMyPosts = function(limit){
-        //populate(MyPosts.getPortion(limit, $scope.myPosts.length).$promise, $scope.myPosts);
-        $scope.myPosts = MyPosts.getPortion(limit, $scope.myPosts.length);
+        populate(MyPosts.getPortion(limit, $scope.myPosts.length).$promise, $scope.myPosts);
+        //$scope.myPosts = MyPosts.getPortion(limit, $scope.myPosts.length);
 
 
     };
 
     $scope.incrementFriendPosts = function(limit){
-//        populate(FriendPosts.getPortion(limit, $scope.friendPosts.length).$promise, $scope.friendPosts);
-          $scope.friendPosts = FriendPosts.getPortion(limit, $scope.friendPosts.length);
+        populate(FriendPosts.getPortion(limit, $scope.friendPosts.length).$promise, $scope.friendPosts);
+//          $scope.friendPosts = FriendPosts.getPortion(limit, $scope.friendPosts.length);
     };
 
     $scope.incrementPopularPosts = function(limit){

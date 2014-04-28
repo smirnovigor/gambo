@@ -1,6 +1,6 @@
 <section data-ng-init="init()" xmlns="http://www.w3.org/1999/html">
     <div masonry preserve-order class="gridItems">
-        <div class="masonry-brick list-item"  data-ng-repeat="post in myPosts.data">
+        <div class="masonry-brick list-item"  data-ng-repeat="post in combined = myPosts.concat(friendPosts) | orderBy:anon">
             <div class="item">
                 <a ng-click="selectPost(post)">
                     <img ng-src="{{getPhotoSrc(post)}}">
@@ -37,3 +37,4 @@
         </div>
     </div>
 </div>
+<div class="alert alert-info text-center" data-ng-click="morePosts()">Load more</div>
