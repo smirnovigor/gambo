@@ -1,9 +1,9 @@
-<section data-ng-init="init()" xmlns="http://www.w3.org/1999/html">
+<section>
     <div masonry preserve-order class="gridItems">
         <div class="masonry-brick list-item"  data-ng-repeat="post in combined = myPosts.concat(friendPosts)">
             <div class="item">
                 <div class="item-img-container">
-                    <a ng-click="selectPost(post)">
+                    <a ui-sref="posts.details({postId:post.post_id})">
                         <img class="img-responsive" ng-src="{{getPhotoSrc(post)}}">
                     </a>
                 </div>
@@ -18,25 +18,9 @@
                     <div>{{post.share_count}} <i class="glyphicon glyphicon-share-alt"></i></div>
                 </div>
             </div>
+            <!--post details view-->
+            <div ui-view></div>
         </div>
     </div>
 </section>
-
-<div class="row" ng-show="selectedPost != null">
-    <div class="col-lg-4 col-md-4 col-sm-4 post-box">
-
-        <img ng-click="selectPost(null)" class="img-responsive img-thumbnail"
-             ng-src="{{getPhotoSrc(selectedPost)}}">
-
-    </div>
-    <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="media-body">
-            <h4 class="media-heading">Comments</h4>
-
-            <div ng-class-even="'even_comment'" ng-repeat="comment in selectedPost.comments.data">
-                {{comment.text}}
-            </div>
-        </div>
-    </div>
-</div>
 <div class="alert alert-info text-center" data-ng-click="morePosts()">Load more</div>

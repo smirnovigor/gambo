@@ -11,27 +11,7 @@ angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 
     var MyPosts = Posts.getPostsResource(Posts.MY, $scope.postsPerPage, 0);
     var FriendPosts = Posts.getPostsResource(Posts.FRIENDS, $scope.postsPerPage, 0);
     var PopularPosts = Posts.getPostsResource(Posts.POPULAR, $scope.postsPerPage, 0);
-    //var CommentsForPost = ;
 
-    $scope.init = function () {
-        $scope.morePosts();
-    };
-
-    $scope.selectPost = function(somePost) {
-          $scope.selectedPost = somePost;
-        console.log(somePost);
-         var promise = Posts.getPostCommentsResource(somePost.post_id, 10, 0).getPortion().$promise;
-          promise
-            .then(function (result) {
-
-                  $scope.selectedPost.comments = result;
-                  console.log($scope.selectedPost.comments);
-                  //$scope.$apply();
-            })
-            .catch(function (error) {
-                console.error('ERROR',error);
-            });
-    };
     $scope.morePosts = function () {
 
         $scope.incrementMyPosts();
@@ -40,30 +20,18 @@ angular.module('gambo.posts').controller('PostsController', ['$scope', 'Posts', 
     };
 
     $scope.incrementMyPosts = function(limit){
-        populate(MyPosts.getPortion(limit, $scope.myPosts.length).$promise, $scope.myPosts);
-        //$scope.myPosts = MyPosts.getPortion(limit, $scope.myPosts.length);
-
-
+        Posts.populate(MyPosts.getPortion(limit, $scope.myPosts.length).$promise, $scope.myPosts);
     };
 
     $scope.incrementFriendPosts = function(limit){
-        populate(FriendPosts.getPortion(limit, $scope.friendPosts.length).$promise, $scope.friendPosts);
-//          $scope.friendPosts = FriendPosts.getPortion(limit, $scope.friendPosts.length);
+        Posts.populate(FriendPosts.getPortion(limit, $scope.friendPosts.length).$promise, $scope.friendPosts);
     };
 
     $scope.incrementPopularPosts = function(limit){
-        populate(PopularPosts.getPortion(limit, $scope.popularPosts.length).$promise, $scope.popularPosts);
+        Posts.populate(PopularPosts.getPortion(limit, $scope.popularPosts.length).$promise, $scope.popularPosts);
     };
 
     $scope.getPhotoSrc = Posts.getPhotoSrc;
 
-    function populate(promise, array){
-        promise
-            .then(function (result) {
-                array.push.apply(array, result.data);
-            })
-            .catch(function (error) {
-                console.error('ERROR',error);
-            });
-    }
+    $scope.morePosts();
 }]);
